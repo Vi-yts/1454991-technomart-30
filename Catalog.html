@@ -9,8 +9,8 @@
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,700;1,400;1,700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="normalize.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="css/Normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body class="page-body">
   <header class="main-header">
@@ -68,7 +68,13 @@
       </div>
       <fieldset class="filter-price">
         <legend>Цена:</legend>
-          <input type="range" min="0" max="30000" value="25000">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slider__process"></div>
+            <div class="slider__start-pin"></div>
+            <div class="slider__finish-pin"></div>
+          </div>
+        </div>
           <input type="number" min="0"/>
           <input type="number" max="30000"/>
       </fieldset>
