@@ -132,15 +132,16 @@ line-height: 24px;
   background: url(../img/icons/icon-search2.svg) no-repeat;
 }
 .header-top input::placeholder{
-  padding-left: 43px;
   color:var(--basic-white);
 }
 
 .header-top input:focus{
-  padding-left: 43px;
   outline-style: none;
   background-color: var(--basic-white);
   color: #000000;
+}
+.header-top input{
+  padding-left: 43px;
 }
 .top-menue li{
   padding: 9px 25px 20px 9px;
@@ -250,28 +251,28 @@ line-height: 24px;
   font-size: 16px;
   line-height: 18px;
 }
-.header-login:hover .other-links a{
+.other-links a:hover {
   color: var(--basic-red);
 }
-.header-login:active .other-links a{
+.other-links a:active {
   color: var(--basic-gray);
 }
-.header-login:hover .person{
+.person:hover {
   color: var(--basic-middle-blue);
 }
-.header-login:active .person{
+.person:active {
   color: var(--basic-gray);
 }
-.header-login:hover .circle{
+.other-links:hover .circle{
   background: var(--basic-red);
 }
-.header-login:active .circle{
+.other-links:active .circle{
   background: var(--basic-gray);
 }
-.header-login a:hover path{
+.person:hover path{
   fill: var(--basic-middle-blue);
 }
-.header-login a:active path{
+.person:active path{
   fill: var(--basic-gray);
 }
 .other-links {
@@ -336,8 +337,14 @@ border-radius: 50%;
   text-align: center;
   padding-top: 13px;
   background-color: var(--basic-white);
+  display: flex;
 }
-
+.person svg:first-of-type{
+  padding-right: 20px;
+}
+.person svg:last-of-type{
+  padding-left: 20px;
+}
 
 /* INDEX / Category */
 .category {
