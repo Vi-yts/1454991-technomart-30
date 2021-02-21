@@ -4,7 +4,8 @@ var popup = document.querySelector('.modal-write-us');
 var openPopupButton = document.querySelector('.contacts-button');
 var closePopupButton = popup.querySelector('.modal-close');
 
-openPopupButton.addEventListener('click', function () {
+openPopupButton.addEventListener('click', function (evt) {
+  evt.preventDefault();
   popup.classList.add('modal-show');
 });
 
@@ -23,8 +24,7 @@ var popupMap = document.querySelector('.modal-modal-map');
 var openButton = document.querySelector('.min-map');
 var closeButton = popupMap.querySelector('.modal-close');
 
-openButton.addEventListener('click', function (evt) {
-  evt.preventDefault();
+openButton.addEventListener('click', function () {
   popupMap.classList.add('modal-show');
 });
 
@@ -47,7 +47,6 @@ for (var i = 0; i < openBtn.length; i++) {
   PopupProduct.classList.add('modal-show');
 });
 }
-
 var closeBtn = PopupProduct.querySelector('.modal-close');
 closeBtn.addEventListener('click', function () {
   PopupProduct.classList.remove('modal-show');
