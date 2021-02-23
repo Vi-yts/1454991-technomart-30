@@ -1,28 +1,61 @@
 if(document.querySelector('.js-index')){
 /* modal-write-us */
-var popup = document.querySelector('.modal-write-us');
-var openPopupButton = document.querySelector('.contacts-button');
-var closePopupButton = popup.querySelector('.modal-close');
+const popup = document.querySelector('.modal-write-us');
+const openPopupButton = document.querySelector('.contacts-button');
+const closePopupButton = popup.querySelector('.modal-close');
+const loginForm = popup.querySelector(".write-us-form");
+const loginName = popup.querySelector(".user-name-input");
+const loginEmail = popup.querySelector(".user-email-input");
+
+let isStorageSupport = true;
+let storage = "";
+
+try {
+  storage = localStorage.getItem("login");
+} catch (err) {
+  isStorageSupport = false;
+}
 
 openPopupButton.addEventListener('click', function (evt) {
   evt.preventDefault();
   popup.classList.add('modal-show');
+
+  if (storage) {
+    loginName.value = storage;
+    loginEmail.focus();
+  } else {
+    loginName.focus();
+  }
 });
 
 closePopupButton.addEventListener('click', function () {
   popup.classList.remove('modal-show');
+  popup.classList.remove('modal-error');
 });
 
-document.addEventListener('keydown', function (evt) {
+loginForm.addEventListener("submit", function (evt) {
+  if (!loginName.value || !loginEmail.value) {
+    evt.preventDefault();
+    popup.classList.remove("modal-error");
+    popup.offsetWidth = popup.offsetWidth;
+    popup.classList.add("modal-error");
+  } else {
+    if (isStorageSupport) {
+      localStorage.setItem("login", loginName.value);
+    }
+  }
+});
+
+window.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 27) {
     popup.classList.remove('modal-show');
   }
 });
 
 /* modal-modal-map */
-var popupMap = document.querySelector('.modal-modal-map');
-var openButton = document.querySelector('.min-map');
-var closeButton = popupMap.querySelector('.modal-close');
+const popupMap = document.querySelector('.modal-modal-map');
+const openButton = document.querySelector('.min-map');
+const closeButton = popupMap.querySelector('.modal-close');
 
 openButton.addEventListener('click', function () {
   popupMap.classList.add('modal-show');
@@ -39,29 +72,29 @@ document.addEventListener('keydown', function (evt) {
 });
 
 /* modal-add-product */
-var PopupProduct = document.querySelector('.modal-add-product');
-var openBtn = document.querySelectorAll('.card-button1');
+const PopupProduct = document.querySelector('.modal-add-product');
+const openBtn = document.querySelectorAll('.card-button1');
 
 for (var i = 0; i < openBtn.length; i++) {
   openBtn[i].addEventListener('click', function () {
   PopupProduct.classList.add('modal-show');
 });
 }
-var closeBtn = PopupProduct.querySelector('.modal-close');
+const closeBtn = PopupProduct.querySelector('.modal-close');
 closeBtn.addEventListener('click', function () {
   PopupProduct.classList.remove('modal-show');
 });
 
-document.addEventListener('keydown', function (evt) {
+window.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 27) {
     PopupProduct.classList.remove('modal-show');
   }
 });
 
 /* features */
-var btn = document.querySelectorAll('.feature-btn');
-var openedTab = function(evt){
-  var blocks = document.querySelectorAll('.other-description > div')
+const btn = document.querySelectorAll('.feature-btn');
+const openedTab = function(evt){
+  const blocks = document.querySelectorAll('.other-description > div')
   for(var j = 0; j < blocks.length; j++){
       blocks[j].classList.remove('block-show')
     if(evt.currentTarget.id === "button-1"){
@@ -82,8 +115,8 @@ for(var i = 0; i < btn.length; i++){
 } else if(document.querySelector('.js-catalog')){
 
 /* modal-add-product */
-var PopupProduct = document.querySelector('.modal-add-product');
-var openBtn = document.querySelectorAll('.card-button1');
+const PopupProduct = document.querySelector('.modal-add-product');
+const openBtn = document.querySelectorAll('.card-button1');
 
 for (var i = 0; i < openBtn.length; i++) {
   openBtn[i].addEventListener('click', function () {
@@ -91,12 +124,12 @@ for (var i = 0; i < openBtn.length; i++) {
 });
 }
 
-var closeBtn = PopupProduct.querySelector('.modal-close');
+const closeBtn = PopupProduct.querySelector('.modal-close');
 closeBtn.addEventListener('click', function () {
   PopupProduct.classList.remove('modal-show');
 });
 
-document.addEventListener('keydown', function (evt) {
+window.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 27) {
     PopupProduct.classList.remove('modal-show');
   }
