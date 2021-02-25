@@ -1,3 +1,26 @@
+/* modal-add-product */
+const showPopupProduct = function () {
+  const PopupProduct = document.querySelector('.modal-add-product');
+  const openBtn = document.querySelectorAll('.card-button1');
+
+  for (var i = 0; i < openBtn.length; i++) {
+    openBtn[i].addEventListener('click', function () {
+    PopupProduct.classList.add('modal-show');
+  });
+  }
+
+  const closeBtn = PopupProduct.querySelector('.modal-close');
+  closeBtn.addEventListener('click', function () {
+    PopupProduct.classList.remove('modal-show');
+  });
+
+  window.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === 27) {
+      PopupProduct.classList.remove('modal-show');
+    }
+  });
+}
+
 if(document.querySelector('.js-index')){
 /* modal-write-us */
 const popup = document.querySelector('.modal-write-us');
@@ -72,24 +95,7 @@ document.addEventListener('keydown', function (evt) {
 });
 
 /* modal-add-product */
-const PopupProduct = document.querySelector('.modal-add-product');
-const openBtn = document.querySelectorAll('.card-button1');
-
-for (var i = 0; i < openBtn.length; i++) {
-  openBtn[i].addEventListener('click', function () {
-  PopupProduct.classList.add('modal-show');
-});
-}
-const closeBtn = PopupProduct.querySelector('.modal-close');
-closeBtn.addEventListener('click', function () {
-  PopupProduct.classList.remove('modal-show');
-});
-
-window.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 27) {
-    PopupProduct.classList.remove('modal-show');
-  }
-});
+showPopupProduct();
 
 /* features */
 const btn = document.querySelectorAll('.feature-btn');
@@ -115,23 +121,6 @@ for(var i = 0; i < btn.length; i++){
 } else if(document.querySelector('.js-catalog')){
 
 /* modal-add-product */
-const PopupProduct = document.querySelector('.modal-add-product');
-const openBtn = document.querySelectorAll('.card-button1');
-
-for (var i = 0; i < openBtn.length; i++) {
-  openBtn[i].addEventListener('click', function () {
-  PopupProduct.classList.add('modal-show');
-});
+showPopupProduct();
 }
 
-const closeBtn = PopupProduct.querySelector('.modal-close');
-closeBtn.addEventListener('click', function () {
-  PopupProduct.classList.remove('modal-show');
-});
-
-window.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 27) {
-    PopupProduct.classList.remove('modal-show');
-  }
-});
-}
