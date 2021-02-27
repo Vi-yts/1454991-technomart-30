@@ -4,7 +4,8 @@ const showPopupProduct = function () {
   const openBtn = document.querySelectorAll('.card-button1');
 
   for (var i = 0; i < openBtn.length; i++) {
-    openBtn[i].addEventListener('click', function () {
+    openBtn[i].addEventListener('click', function (evt) {
+    evt.preventDefault();
     PopupProduct.classList.add('modal-show');
   });
   }
