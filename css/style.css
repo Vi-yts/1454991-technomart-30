@@ -645,9 +645,16 @@ margin: 0;
   left:20px;
 }
 .category-materials{
-  background: url(../img/icons/icon-1.svg) no-repeat 83% 50%,
-              url(../img/icons/new.svg) no-repeat 100% 0%;
+  background: url(../img/icons/icon-1.svg) no-repeat 83% 50%;
   background-color:  #FFBF47;
+  position: relative;
+}
+.category .image-new::after{
+  content: url(../img/icons/new.svg);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 3;
 }
 .category-tools{
   background:#3BBCE3 url(../img/icons/icon-2.svg) no-repeat 85% 50%;
